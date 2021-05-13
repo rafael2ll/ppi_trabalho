@@ -53,7 +53,7 @@ CREATE TABLE paciente
    codigo varchar(50),
    peso float,
    altura int,
-   tipoSanguineo varchar(8),
+   tipo_sanguineo varchar(8),
    id_pessoa int not null,
    FOREIGN KEY (id_pessoa) REFERENCES pessoa(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
