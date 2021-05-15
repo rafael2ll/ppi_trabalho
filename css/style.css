@@ -57,4 +57,19 @@ footer {
 
 footer > p {
     text-align: center;
+    margin-bottom: 0;
+}
+
+.center-horizontal {
+    display: flex;
+    justify-content: center;
+}
+
+.table-scrollbar {
+    height: 45em;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
 }

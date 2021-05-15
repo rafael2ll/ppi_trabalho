@@ -14,25 +14,9 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Clinica X</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="home.html">Contato</a></li>
-                <li class="nav-item"><a class="nav-link" href="galeria.html">Galeria</a></li>
-                <li class="nav-item"><a class="nav-link" href="agendamento.html">Agendamento</a></li>
-                <li class="nav-item"><a class="nav-link" href="cadastro_endereco.html">Cadastro de endereço</a></li>
-                <li class="nav-item"></li>
-            </ul>
-        </div>
-        <a class="navbar-text nav-link" href="login.html">Login</a>
-    </div>
-</nav>
+<?php
+include "navbar.html";
+?>
 <main class="container p-3">
     <form action="php/agenda_consulta.php" method="POST">
         <h4 class="p-1 mb-0">Cadastro da Consulta</h4>
@@ -93,9 +77,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy"
         crossorigin="anonymous"></script>
-<footer>
-    <p>Clinica X © 2020 - Todos direitos reservados</p>
-</footer>
+<?php
+include "../footer.html";
+?>
 </body>
 
 </html>
