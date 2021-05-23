@@ -67,10 +67,10 @@ include "../navbar.html";
                 <label for="email" class="form-label">Email</label>
                 <input type="email" name="email" class="form-control" id="email">
             </div>
-        </fieldset>
         <div class="col-12 mt-2">
             <button type="submit" class="btn btn-primary submit-button">Agendar Consulta</button>
         </div>
+        </fieldset>
     </form>
 </main>
 

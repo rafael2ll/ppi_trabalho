@@ -54,6 +54,10 @@ form > h4 {
     float: right;
 }
 
+.login-button{
+    float:left;
+}
+
 footer {
     font-family: "Roboto Bold", serif;
     position: absolute;
@@ -116,4 +120,3 @@ footer > p {
     padding: 20px 40px;
     overflow: hidden;
 }
-
