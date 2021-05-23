@@ -11,6 +11,9 @@
 body {
     font-family: RobotoRegular, serif;
     background: #f7f7e8;
+    background-image: url("../images/imagem-clinica-background.jpeg");
+    padding 25px;
+    margin: 0;
 }
 
 button {
@@ -22,6 +25,11 @@ button {
 h1, h2 {
     font-family: RobotoRegular, serif;
     color: gray;
+}
+
+p {
+    font-family: RobotoRegular, serif;
+    color: black;
 }
 
 fieldset {
@@ -73,3 +81,39 @@ footer > p {
 .table-wrapper-scroll-y {
     display: block;
 }
+
+.images_galeria{
+    height: 200px;
+    width: 300px;
+    border-radius: 5px;
+    border: 3px;
+    position: center;
+    border-color:black;
+    margin: 10px 0;
+    margin-right: 15px;
+    max-width: 100%;
+    float: absolute;
+}
+
+.images_principal{
+    height: 200px;
+    width: 400px;
+    border-radius: 5px;
+    border: 3px;
+    position: center;
+    border-color:black;
+    margin: 10px 0;
+    margin-right: 15px;
+    max-width: 100%;
+    float: absolute;
+}
+
+.home-page{
+    position: absolute;
+    background-color: whitesmoke;
+    border-color: black;
+    border: 1px solid gray;
+    padding: 20px 40px;
+    overflow: hidden;
+}
+
