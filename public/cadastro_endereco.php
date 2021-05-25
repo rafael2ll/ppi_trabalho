@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Novo Endereço</title>
 
     <!-- Bootstrap CSS -->
@@ -15,28 +15,9 @@
 
 <body>
 <?php
-include "../navbar.html";
+include "navbar.html";
 ?>
 
-<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
-<!--    <div class="container-fluid">-->
-<!--        <a class="navbar-brand" href="#">Clinica X</a>-->
-<!--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"-->
-<!--                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--            <span class="navbar-toggler-icon"></span>-->
-<!--        </button>-->
-<!--        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">-->
-<!--            <ul class="navbar-nav">-->
-<!--                <li class="nav-item"><a class="nav-link" href="index.html">Contato</a></li>-->
-<!--                <li class="nav-item"><a class="nav-link" href="galeria.html">Galeria</a></li>-->
-<!--                <li class="nav-item"><a class="nav-link" href="agendamento.html">Agendamento</a></li>-->
-<!--                <li class="nav-item"><a class="nav-link" href="cadastro_endereco.html">Cadastro de endereço</a></li>-->
-<!--                <li class="nav-item"></li>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--        <a class="navbar-text nav-link" href="login.php">Login</a>-->
-<!--    </div>-->
-<!--</nav>-->
 <main class="container p-3">
     <form action="Ex03-transacao-cadastra-pedido.php" method="POST">
         <h4 class="p-1">Cadastro de endereço</h4>
@@ -67,7 +48,7 @@ include "../navbar.html";
                 </div>
             </div>
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                <button type="submit" class="btn btn-primary submit-button">Cadastrar</button>
             </div>
         </fieldset>
     </form>
@@ -77,7 +58,7 @@ include "../navbar.html";
         integrity="sha384-popRpmFF9JQgExhfw5tZT4I9/CI5e2QcuUZPOVXb1m7qUmeR2b50u+YFEYe1wgzy"
         crossorigin="anonymous"></script>
 <?php
-include "../../footer.html";
+include "../footer.html";
 ?>
 </body>
 

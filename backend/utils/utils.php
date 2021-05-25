@@ -2,14 +2,14 @@
 function get_or_default($name, $default)
 {
     if (isset($_POST[$name]))
-        return $_POST[$name];
+        return htmlspecialchars($_POST[$name]);
     else return $default;
 }
 
 function get_or_error($name, $error)
 {
     if (isset($_POST[$name]) && !empty($_POST[$name]))
-        return $_POST[$name];
+        return htmlspecialchars($_POST[$name]);
     else {
         http_response_code(400);
         echo json_encode(array('erro' => $error));

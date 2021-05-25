@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Clínica X - Galeria</title>
 
     <!-- Bootstrap CSS -->
@@ -12,35 +12,33 @@
 
 </head>
 <body>
-    <?php
-    include "../navbar.html";
-    ?>
+<?php
+include "navbar.html";
+?>
 
+<main class="center-horizontal">
     <div class="align-text-description">
         <div>
             <div class="table-responsive">
                 <table class=" table-striped table-hover">
                     <tr>
-                        <td><img class="images_galeria" src="../../images/imagem-clinica1.jpeg"></td>
-                        <td><img class="images_galeria" src="../../images/imagem-clinica2.jpeg"></td>
-                        <td><img class="images_galeria" src="../../images/imagem-clinica3.jpeg"></td>
+                        <td><img class="images_galeria" src="../images/imagem-clinica1.jpeg"></td>
+                        <td><img class="images_galeria" src="../images/imagem-clinica2.jpeg"></td>
+                        <td><img class="images_galeria" src="../images/imagem-clinica3.jpeg"></td>
                     </tr>
                     <br>
                     <tr>
-                        <td><img class="images_galeria" src="../../images/imagem-clinica4.jpeg"></td>
-                        <td><img class="images_galeria" src="../../images/imagem-clinica5.jpeg"></td>
-                        <td><img class="images_galeria" src="../../images/imagem-clinica6.jpeg"></td>
+                        <td><img class="images_galeria" src="../images/imagem-clinica4.jpeg"></td>
+                        <td><img class="images_galeria" src="../images/imagem-clinica5.jpeg"></td>
+                        <td><img class="images_galeria" src="../images/imagem-clinica6.jpeg"></td>
                     </tr>
                 </table>
             </div>
         </div>
     </div>
-<br>
-<br>
-<div>
-    <?php
-    include "../../footer.html";
-    ?>
-</div>
+</main>
+<?php
+include "../footer.html";
+?>
 </body>
 </html>

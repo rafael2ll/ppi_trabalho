@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Nova Consulta</title>
 
     <!-- Bootstrap CSS -->
@@ -15,11 +15,11 @@
 
 <body>
 <?php
-include "../navbar.html";
+include "navbar.html";
 ?>
 <main class="container p-3">
-    <form action="php/agenda_consulta.php" method="POST">
-        <h4 class="p-1 mb-0">Cadastro da Consulta</h4>
+    <form action="../backend/api/consulta/criar_consulta.php" method="POST">
+        <h4 class="p-1">Cadastro da Consulta</h4>
         <fieldset class="p-3">
             <div class="col-sm-12">
                 <label for="medicalSpecialty" class="form-label">Especialidade Médica</label>
@@ -79,7 +79,7 @@ include "../navbar.html";
         crossorigin="anonymous"></script>
 <br>
 <?php
-include "../../footer.html";
+include "../footer.html";
 ?>
 </body>
 
