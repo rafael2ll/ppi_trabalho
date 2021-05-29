@@ -5,7 +5,7 @@ require "../../model/Agenda.php";
 
 $PAGE_SIZE = 20;
 $pdo = dbConnection();
-$page = get_or_default("page", 0);
+$page = post_or_default("page", 0);
 $primeiroItem = $PAGE_SIZE * $page;
 $ultimoItem = $PAGE_SIZE * ($page + 1);
 try {

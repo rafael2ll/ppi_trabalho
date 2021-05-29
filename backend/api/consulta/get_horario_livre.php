@@ -6,15 +6,18 @@ require "../../model/Agenda.php";
 $TODOS_HORARIOS = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
 
 $pdo = dbConnection();
-$medId = $_GET['medico_id'] / 1;
-$data = strtotime($_GET['data']);
+$medId = get_or_error('med_id', 'med_id não fornecido') / 1;
+$data = strtotime(get_or_error('data', 'Data não fornecida'));
 $data = date('Y-m-d', $data);
 try {
     $sql = <<<SQL
         SELECT horario from agenda
-            WHERE cod_med = $medId  AND data = '$data';
+            WHERE cod_med = :medico_id  AND data_agenda = :data;
     SQL;
-    $stmt = $pdo->query($sql);
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam('medico_id', $medId);
+    $stmt->bindParam('data', $data);
+    $stmt->execute();
 } catch (Exception $e) {
     exit('Ocorreu uma falha: ' . $e->getMessage());
 }

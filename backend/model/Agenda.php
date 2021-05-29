@@ -4,7 +4,7 @@ require 'Medico.php';
 class Agenda
 {
     public ?int $codigo;
-    public string $data;
+    public string $data_agenda;
     public string $horario;
     public string $nome;
     public string $sexo;
@@ -14,7 +14,7 @@ class Agenda
     public function __construct(?int $codigo, string $data, string $horario, string $nome, string $sexo, string $email, Medico $medico)
     {
         $this->codigo = $codigo;
-        $this->data = $data;
+        $this->data_agenda = $data;
         $this->horario = $horario;
         $this->nome = $nome;
         $this->sexo = $sexo;

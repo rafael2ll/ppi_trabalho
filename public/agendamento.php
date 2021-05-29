@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/style.css">
     <title>Nova Consulta</title>
-
+    <script src="scripts/agendamento.js"></script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
@@ -18,33 +18,29 @@
 include "navbar.html";
 ?>
 <main class="container p-3">
-    <form action="../backend/api/consulta/criar_consulta.php" method="POST">
+    <div class="card m-2 hidden" id="resultCard"></div>
+    <form method="post">
         <h4 class="p-1">Cadastro da Consulta</h4>
         <fieldset class="p-3">
             <div class="col-sm-12">
-                <label for="medicalSpecialty" class="form-label">Especialidade Médica</label>
-                <select name="medicalSpecialty" class="form-select" id="medicalSpecialty">
+                <label for="medicalSpecialtySelect" class="form-label">Especialidade Médica</label>
+                <select class="form-select" id="medicalSpecialtySelect">
                     <option selected>Selecione</option>
                 </select>
             </div>
             <div class="col-sm-12">
-                <label for="doctor" class="form-label">Médico</label>
-                <select name="doctor" class="form-select" id="doctor">
-                    <option selected>Selecione</option>
+                <label for="doctorSelect" class="form-label">Médico</label>
+                <select name="codigo_medico" class="form-select" id="doctorSelect">
                 </select>
             </div>
             <div class="row g-3">
                 <div class="col-sm-9">
                     <label for="date" class="form-label">Data</label>
-                    <input type="date" name="date" class="form-control" id="date">
+                    <input type="date" name="data" class="form-control" id="date">
                 </div>
                 <div class="col-sm-3">
-                    <label for="hour" class="form-label">Horário</label>
-                    <select name="hour" class="form-select" id="hour">
-                        <option selected>Selecione</option>
-                        <option value="Minas Gerais">8h</option>
-                        <option value="Sao Paulo">9h</option>
-                    </select>
+                    <label for="hourSelect" class="form-label">Horário</label>
+                    <select name="horario" class="form-select" id="hourSelect"></select>
                 </div>
             </div>
         </fieldset>
@@ -53,11 +49,11 @@ include "navbar.html";
             <div class="row gx-2">
                 <div class="col-sm-9">
                     <label for="name" class="form-label">Nome</label>
-                    <input type="text" name="name" class="form-control" id="name">
+                    <input type="text" name="nome" class="form-control" id="name">
                 </div>
                 <div class="col-sm-3">
                     <label for="gender" class="form-label">Sexo</label>
-                    <select name="gender" class="form-select" id="gender">
+                    <select name="sexo" class="form-select" id="gender">
                         <option value="M" selected>Masculino</option>
                         <option value="F">Feminino</option>
                     </select>
@@ -67,9 +63,9 @@ include "navbar.html";
                 <label for="email" class="form-label">Email</label>
                 <input type="email" name="email" class="form-control" id="email">
             </div>
-        <div class="col-12 mt-2">
-            <button type="submit" class="btn btn-primary submit-button">Agendar Consulta</button>
-        </div>
+            <div class="col-12 mt-2">
+                <button type="submit" class="btn btn-primary submit-button">Agendar Consulta</button>
+            </div>
         </fieldset>
     </form>
 </main>

@@ -8,18 +8,18 @@ $pdo = dbConnection();
 
 $agenda = new Agenda(
     null,
-    get_or_error('data', 'Data inválida'),
-    get_or_error('horario', 'Horário inválido'),
-    get_or_error('nome', 'Nome inválido'),
-    get_or_error('sexo', 'Sexo inválido'),
-    get_or_error('email', 'Email inválido'),
-    Medico::fromCodigo(get_or_error('codigo_medico', 'Código do médico inválido')));
+    post_or_error('data', 'Data inválida'),
+    post_or_error('horario', 'Horário inválido'),
+    post_or_error('nome', 'Nome inválido'),
+    post_or_error('sexo', 'Sexo inválido'),
+    post_or_error('email', 'Email inválido'),
+    Medico::fromCodigo(post_or_error('codigo_medico', 'Código do médico inválido')));
 
 
 try {
 
     $sql = <<<SQL
-        INSERT INTO agenda(data, horario, nome, sexo, email, cod_med) VALUES (:data, :horario, :nome, :sexo, :email, :cod_med);
+        INSERT INTO agenda(data_agenda, horario, nome, sexo, email, cod_med) VALUES (:data_agenda, :horario, :nome, :sexo, :email, :cod_med);
     SQL;
     $stmt = $pdo->prepare($sql);
     $stmt->execute($agenda->insertValues());

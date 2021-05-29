@@ -6,7 +6,7 @@ $pdo = dbConnection();
 
 try {
     $sql = <<<SQL
-        SELECT especialidade from medico;
+        SELECT DISTINCT especialidade from medico;
     SQL;
     $stmt = $pdo->query($sql);
 } catch (Exception $e) {
@@ -15,7 +15,6 @@ try {
 
 $especialidades = array();
 while ($row = $stmt->fetch()) {
-    array_push($especialidades, htmlspecialchars($row));
+    array_push($especialidades, ucfirst(htmlspecialchars($row['especialidade'])));
 }
-
 echo json_encode_not_null(array_values($especialidades));
