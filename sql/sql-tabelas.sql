@@ -53,8 +53,8 @@ CREATE TABLE paciente
 
 CREATE TABLE base_endereco
 (
-    id       int PRIMARY KEY auto_increment,
-    cep      char(10),
-    endereco varchar(100),
-    cidade   varchar(50)
+    id         int PRIMARY KEY auto_increment,
+    cep        char(10),
+    logradouro varchar(100),
+    cidade     varchar(50)
 ) ENGINE = InnoDB;

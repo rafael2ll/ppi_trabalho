@@ -37,6 +37,7 @@ function get_or_error($name, $error)
 
 function json_encode_not_null($values)
 {
+    header('Content-Type: application/json');
     $json = json_encode($values);
     return preg_replace('/,\s*"[^"]+":null|"[^"]+":null,?/', '', $json);
 }

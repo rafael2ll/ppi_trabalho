@@ -2,12 +2,16 @@
 require $_SERVER['DOCUMENT_ROOT'] . "/backend/utils/dbConnection.php";
 require $_SERVER['DOCUMENT_ROOT'] . "/backend/utils/utils.php";
 require "../../model/Agenda.php";
+require "../../model/PageResponse.php";
 
-$PAGE_SIZE = 20;
+$PAGE_SIZE = 5;
 $pdo = dbConnection();
 $page = get_or_default("page", 0);
 $offset = $PAGE_SIZE * $page;
 try {
+    $countSql = <<<SQL
+        SELECT count(*) as count from agenda;
+    SQL;
 
     $sql = <<<SQL
         SELECT ag.*, 
@@ -17,12 +21,14 @@ try {
         from agenda ag
             JOIN medico med ON med.codigo = cod_med
             JOIN pessoa pess ON med.codigo = pess.codigo
+        ORDER BY data_agenda DESC, horario DESC
         LIMIT ? OFFSET ?;
     SQL;
     $stmt = $pdo->prepare($sql);
     $stmt->bindParam(1, $PAGE_SIZE);
     $stmt->bindParam(2, $offset);
     $stmt->execute();
+    $countStmt = $pdo->query($countSql);
 } catch (Exception $e) {
     exit('Ocorreu uma falha: ' . $e->getMessage());
 }
@@ -33,4 +39,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     array_push($agendas, $agenda);
 }
 
-echo json_encode_not_null($agendas);
+$count = $countStmt->fetch();
+$response = new PageResponse($count['count'], $agendas, count($agendas));
+
+echo json_encode_not_null($response);
