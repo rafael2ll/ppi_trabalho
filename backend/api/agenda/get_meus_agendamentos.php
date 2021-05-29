@@ -5,10 +5,9 @@ require "../../model/Agenda.php";
 
 $PAGE_SIZE = 20;
 $pdo = dbConnection();
+$me = get_or_error('med_id', 'med_id não informado');
 $page = post_or_default("page", 0);
-$meuId = $_GET['medico_id']; //TODO Pegar da sessão
-$primeiroItem = $PAGE_SIZE * $page;
-$ultimoItem = $PAGE_SIZE * ($page + 1);
+$offset = $PAGE_SIZE * $page;
 try {
 
     $sql = <<<SQL
@@ -19,14 +18,13 @@ try {
         from agenda ag
             JOIN medico med ON med.codigo = cod_med
             JOIN pessoa pess ON med.codigo = pess.codigo
-        WHERE
-            med.codigo = ?
-        LIMIT ?,?;
+        WHERE med.codigo = ?
+        LIMIT ? OFFSET ?;
     SQL;
     $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(1, $meuId);
-    $stmt->bindParam(2, $primeiroItem);
-    $stmt->bindParam(3, $ultimoItem);
+    $stmt->bindParam(1, $me);
+    $stmt->bindParam(2, $PAGE_SIZE);
+    $stmt->bindParam(3, $offset);
     $stmt->execute();
 } catch (Exception $e) {
     exit('Ocorreu uma falha: ' . $e->getMessage());

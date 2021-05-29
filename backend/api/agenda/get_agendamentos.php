@@ -5,9 +5,8 @@ require "../../model/Agenda.php";
 
 $PAGE_SIZE = 20;
 $pdo = dbConnection();
-$page = post_or_default("page", 0);
-$primeiroItem = $PAGE_SIZE * $page;
-$ultimoItem = $PAGE_SIZE * ($page + 1);
+$page = get_or_default("page", 0);
+$offset = $PAGE_SIZE * $page;
 try {
 
     $sql = <<<SQL
@@ -18,11 +17,11 @@ try {
         from agenda ag
             JOIN medico med ON med.codigo = cod_med
             JOIN pessoa pess ON med.codigo = pess.codigo
-        LIMIT ?,?;
+        LIMIT ? OFFSET ?;
     SQL;
     $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(1, $primeiroItem);
-    $stmt->bindParam(2, $ultimoItem);
+    $stmt->bindParam(1, $PAGE_SIZE);
+    $stmt->bindParam(2, $offset);
     $stmt->execute();
 } catch (Exception $e) {
     exit('Ocorreu uma falha: ' . $e->getMessage());

@@ -23,19 +23,22 @@ function loadEspecialidades(medicalSpecialtySelect) {
             if (response.ok)
                 return response.json()
             else new Error(response.status.toString())
-        }).then(specialtyList =>
+        }).then(specialtyList => {
         specialtyList.forEach(s => {
             const el = document.createElement("option")
             el.textContent = s
             el.value = s
             medicalSpecialtySelect.appendChild(el)
         })
-    )
+        loadMedicos(specialtyList[0])
+    })
         .catch(error => console.error('Falha inesperada: ' + error))
 }
 
 function loadMedicos(especialidade) {
     const doctorSelect = document.getElementById('doctorSelect')
+    const dateSelect = document.getElementById('date')
+
     doctorSelect.innerHTML = ''
     fetch(`/backend/api/medico/get_medicos.php?especialidade=${especialidade}`)
         .then(response => {
@@ -50,6 +53,7 @@ function loadMedicos(especialidade) {
                 el.value = med.codigo
                 doctorSelect.appendChild(el)
             })
+            loadHorarios(dateSelect.value, medicoList[0].codigo)
         })
 }
 
@@ -82,7 +86,8 @@ function submit(e) {
         .then(response => {
             const resultCard = document.getElementById('resultCard')
             if (response.ok) {
-                showCard(true, resultCard, 'Consulta criada com sucesso!')
+                showCard(true, resultCard, `Consulta no dia ${formData.get('data')} às ${formData.get('horario')} criada com sucesso!`)
+                meuForm.reset()
             } else {
                 response.json().then(error => {
                     showCard(false, resultCard, error.erro)

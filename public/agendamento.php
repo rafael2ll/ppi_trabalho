@@ -25,7 +25,6 @@ include "navbar.html";
             <div class="col-sm-12">
                 <label for="medicalSpecialtySelect" class="form-label">Especialidade Médica</label>
                 <select class="form-select" id="medicalSpecialtySelect">
-                    <option selected>Selecione</option>
                 </select>
             </div>
             <div class="col-sm-12">
@@ -36,7 +35,7 @@ include "navbar.html";
             <div class="row g-3">
                 <div class="col-sm-9">
                     <label for="date" class="form-label">Data</label>
-                    <input type="date" name="data" class="form-control" id="date">
+                    <input type="date" value="<?php echo date('Y-m-d'); ?>" name="data" class="form-control" id="date">
                 </div>
                 <div class="col-sm-3">
                     <label for="hourSelect" class="form-label">Horário</label>

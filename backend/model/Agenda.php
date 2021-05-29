@@ -11,10 +11,10 @@ class Agenda
     public string $email;
     public ?Medico $medico;
 
-    public function __construct(?int $codigo, string $data, string $horario, string $nome, string $sexo, string $email, Medico $medico)
+    public function __construct(?int $codigo, string $data_agenda, string $horario, string $nome, string $sexo, string $email, Medico $medico)
     {
         $this->codigo = $codigo;
-        $this->data_agenda = $data;
+        $this->data_agenda = $data_agenda;
         $this->horario = $horario;
         $this->nome = $nome;
         $this->sexo = $sexo;
@@ -38,6 +38,6 @@ class Agenda
         $medico['nome'] = $row['pessoa_nome'];
         $medico['especialidade'] = $row['especialidade'];
         $medico = Medico::fromRow($medico);
-        return new Agenda($row['codigo'], $row['data'], $row['horario'], $row['nome'], $row['sexo'], $row['email'], $medico);
+        return new Agenda($row['codigo'], $row['data_agenda'], $row['horario'], $row['nome'], $row['sexo'], $row['email'], $medico);
     }
 }
