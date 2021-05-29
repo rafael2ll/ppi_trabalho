@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../../css/style.css">
     <title>Meus Agendamentos</title>
 
-    <script src="scripts/agendamentos.js"></script>
+    <script  src="scripts/agendamentos.js"></script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
@@ -29,7 +29,6 @@ include "../navbar.html";
                 <th scope="col">Nome</th>
                 <th scope="col">Sexo</th>
                 <th scope="col">Email</th>
-                <th scope="col">Medico Responsável</th>
                 <th scope="col">Especialidade</th>
             </tr>
             </thead>

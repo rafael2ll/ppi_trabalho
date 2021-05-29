@@ -3,6 +3,7 @@ let maxPages = 0;
 let isMe = false;
 
 window.onload = () => {
+    setOnlyMine()
     loadPage();
 }
 
