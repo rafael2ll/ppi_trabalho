@@ -1,9 +1,10 @@
 <?php
+require '../backend/utils/dbConnection.php';
 
 function checkLogin($pdo, $email, $senha)
 {
     $sql = <<<SQL
-    SELECT funcionario.senha_hash
+    SELECT funcionario.senha_hash as hash_senha, funcionario.codigo as codigo
     FROM pessoa
     INNER JOIN funcionario ON pessoa.codigo = funcionario.codigo
     WHERE email = ?
@@ -13,10 +14,11 @@ function checkLogin($pdo, $email, $senha)
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$email]);
         $row = $stmt->fetch();
+        var_dump(password_hash('senha', PASSWORD_BCRYPT));
         if (!$row)
-            return false;
+            return array(false, -1);
         else
-            return password_verify($senha, $row['hash_senha']);
+            return array(password_verify($senha, $row['hash_senha']), $row['codigo']);
     } catch (Exception $e) {
         exit('Falha inesperada: ' . $e->getMessage());
     }
@@ -24,9 +26,7 @@ function checkLogin($pdo, $email, $senha)
 
 $errorMsg = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    require "conexaoMysql.php";
-    $pdo = mysqlConnect();
+    $pdo = dbConnection();
 
     $email = $senha = "";
 
@@ -35,8 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["senha"]))
         $senha = $_POST["senha"];
 
-    if (checkLogin($pdo, $email, $senha)) {
-        header("location: home-funcionario.html");
+    $resultLogin = checkLogin($pdo, $email, $senha);
+    if ($resultLogin[0]) {
+        header("location: /public/index.php");
+        session_start();
+        $_SESSION['id'] = $resultLogin[1];
         exit();
     } else
         $errorMsg = "Dados incorretos";
@@ -59,11 +62,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 <?php
-include "navbar.html";
+include "../navbar.php";
 ?>
 
 <main class="container p-3">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" class="row g-3 mini-center-horizontal">
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"
+          class="row g-3 mini-center-horizontal">
         <h4 class="p-1 mb-0">Login - Funcionarios</h4>
         <fieldset class="p-3 m-0">
             <!-- E-mail e senha -->

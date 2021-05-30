@@ -12,6 +12,6 @@ class PageResponse
         $this->maxElements = $maxElements;
         $this->results = $results;
         $this->size = $size;
-        $this->maxPages = ceil($maxElements / 5);
+        $this->maxPages = ceil($maxElements / 20);
     }
 }

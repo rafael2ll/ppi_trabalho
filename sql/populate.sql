@@ -13,12 +13,12 @@ VALUES ('Fulano 1', 'M', 'fulano1@email.com', '5534998985656', '38408119', 'Rua 
 
 
 INSERT INTO ppi.funcionario (codigo, data_contrato, salario, senha_hash)
-VALUES (1, '2021-01-01 00:00:00', 1500.0, '$2y$10$ZShlcb40g.jzC91WCN\\/aBOZvK\\/ggx.qMdf818vVSHeVjJPqKv\\/rr2'),
-       (2, '2021-01-01 00:00:00', 2500.0, '$2y$10$ZShlcb40g.jzC91WCN\\/aBOZvK\\/ggx.qMdf818vVSHeVjJPqKv\\/rr2'),
-       (3, '2021-01-01 00:00:00', 3500.0, '$2y$10$ZShlcb40g.jzC91WCN\\/aBOZvK\\/ggx.qMdf818vVSHeVjJPqKv\\/rr2'),
-       (4, '2020-01-01 00:00:00', 4500.0, '$2y$10$ZShlcb40g.jzC91WCN\\/aBOZvK\\/ggx.qMdf818vVSHeVjJPqKv\\/rr2'),
-       (5, '2019-01-01 00:00:00', 5500.0, '$2y$10$ZShlcb40g.jzC91WCN\\/aBOZvK\\/ggx.qMdf818vVSHeVjJPqKv\\/rr2'),
-       (6, '2020-01-01 00:00:00', 6500.0, '$2y$10$ZShlcb40g.jzC91WCN\\/aBOZvK\\/ggx.qMdf818vVSHeVjJPqKv\\/rr2');
+VALUES (1, '2021-01-01 00:00:00', 1500.0, '$2y$10$SOvI3LpJDqD77P6wQ5Gj9.Ua/F5hsWzD5l2na6oai8UxUrShdTU0i'),
+       (2, '2021-01-01 00:00:00', 2500.0, '$2y$10$SOvI3LpJDqD77P6wQ5Gj9.Ua/F5hsWzD5l2na6oai8UxUrShdTU0i'),
+       (3, '2021-01-01 00:00:00', 3500.0, '$2y$10$SOvI3LpJDqD77P6wQ5Gj9.Ua/F5hsWzD5l2na6oai8UxUrShdTU0i'),
+       (4, '2020-01-01 00:00:00', 4500.0, '$2y$10$SOvI3LpJDqD77P6wQ5Gj9.Ua/F5hsWzD5l2na6oai8UxUrShdTU0i'),
+       (5, '2019-01-01 00:00:00', 5500.0, '$2y$10$SOvI3LpJDqD77P6wQ5Gj9.Ua/F5hsWzD5l2na6oai8UxUrShdTU0i'),
+       (6, '2020-01-01 00:00:00', 6500.0, '$2y$10$SOvI3LpJDqD77P6wQ5Gj9.Ua/F5hsWzD5l2na6oai8UxUrShdTU0i');
 
 INSERT INTO ppi.medico (codigo, especialidade, crm)
 VALUES (1, 'cardiologia', '000001'),

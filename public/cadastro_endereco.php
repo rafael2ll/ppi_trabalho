@@ -15,7 +15,7 @@
 
 <body>
 <?php
-include "navbar.html";
+include "../navbar.php";
 ?>
 
 <main class="container p-3">

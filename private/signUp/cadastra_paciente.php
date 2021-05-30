@@ -1,7 +1,7 @@
 <?php
 
-require "conexaoMysql.php";
-$pdo = mysqlConnect();
+require "../../backend/utils/dbConnection.php";
+$pdo = dbConnection();
 
 $codigo = $nome = $sexo = $email = $telefone = $cep = $endereco = $cidade = $estado = "";
 $datanascimento = $estadocivil = $altura = "";
@@ -35,44 +35,43 @@ $tsangue = htmlspecialchars($tsangue);
 
 try {
 
-  $pdo->beginTransaction();
+    $pdo->beginTransaction();
 
-  $sql1 = <<<SQL
+    $sql1 = <<<SQL
   -- Repare que a coluna Id foi omitida por ser auto_increment
   INSERT INTO pessoa (nome, sexo, email, telefone, cep,
                        endereco, cidade, estado)
   VALUES (?, ?, ?, ?, ?, ?, ?, ?)
   SQL;
 
-  $stmt = $pdo->prepare($sql1);
-  if (! $stmt->execute([
-    $nome, $sexo, $email, $telefone,
-    $cep, $endereco, $cidade, $estado]))
-    throw new Exception("Falha no cadastro de pessoa");
+    $stmt = $pdo->prepare($sql1);
+    if (!$stmt->execute([
+        $nome, $sexo, $email, $telefone,
+        $cep, $endereco, $cidade, $estado]))
+        throw new Exception("Falha no cadastro de pessoa");
 
 
-  $idNovaPessoa = $pdo->lastInsertId();
+    $idNovaPessoa = $pdo->lastInsertId();
 
-  $sql2 = <<<SQL
+    $sql2 = <<<SQL
   -- Repare que a coluna Id foi omitida por ser auto_increment
   INSERT INTO paciente (codigo, peso, altura, tipo_sanguineo)
   VALUES (?, ?, ?, ?)
   SQL;
 
-  $stmt = $pdo->prepare($sql2);
-  if (! $stmt->execute([$idNovaPessoa, $peso, $altura, $tsangue]))
-    throw new Exception("Falha no cadastro de paciente");
+    $stmt = $pdo->prepare($sql2);
+    if (!$stmt->execute([$idNovaPessoa, $peso, $altura, $tsangue]))
+        throw new Exception("Falha no cadastro de paciente");
 
-  $pdo->commit();
+    $pdo->commit();
 
-  header("location: index.php");
-  exit();
-}
-catch (Exception $e) {
-  $pdo->rollBack();
-  //error_log($e->getMessage(), 3, 'log.php');
-  if ($e->errorInfo[1] === 1062)
-    exit('Dados duplicados: ' . $e->getMessage());
-  else
-    exit('Falha ao cadastrar os dados: ' . $e->getMessage());
+    header("location: index.php");
+    exit();
+} catch (Exception $e) {
+    $pdo->rollBack();
+    //error_log($e->getMessage(), 3, 'log.php');
+    if ($e->errorInfo[1] === 1062)
+        exit('Dados duplicados: ' . $e->getMessage());
+    else
+        exit('Falha ao cadastrar os dados: ' . $e->getMessage());
 }

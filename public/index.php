@@ -11,34 +11,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
 </head>
-
-<!--<style>-->
-<!--  body {-->
-<!--    padding-top: 3rem;-->
-<!--    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;-->
-<!--  }-->
-
-<!--  a:link, a:visited, a:active {-->
-<!--    color: #555;-->
-<!--    text-decoration: none;-->
-<!--    display: block;-->
-<!--    margin-bottom: 1em;-->
-<!--    background-color: #eee;-->
-<!--    border: 0.5px solid lightgray;-->
-<!--    padding: 10px;-->
-<!--    margin: 5px auto;-->
-<!--    width: 300px;-->
-<!--  }-->
-
-<!--  a:hover {-->
-<!--    background-color: #dedede;-->
-<!--  }-->
-
-<!--</style>-->
-
 <body>
 <?php
-include "navbar.html";
+include "../navbar.php";
 ?>
 <main class="center-horizontal">
     <div class="home-page">

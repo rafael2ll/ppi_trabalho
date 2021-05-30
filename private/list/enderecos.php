@@ -16,7 +16,7 @@
 
 <body>
 <?php
-include "../navbar.html";
+include "../../navbar.php";
 ?>
 <main class="container p-3">
     <h4 class="p-1 mb-0">Endereços</h4>

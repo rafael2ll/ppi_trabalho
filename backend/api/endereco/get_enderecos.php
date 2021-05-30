@@ -16,6 +16,7 @@ try {
 
     $sql = <<<SQL
         SELECT * FROM base_endereco 
+            ORDER BY cep, logradouro
             LIMIT ? OFFSET  ?;
     SQL;
     $stmt = $pdo->prepare($sql);

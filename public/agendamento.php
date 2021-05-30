@@ -15,7 +15,7 @@
 
 <body>
 <?php
-include "navbar.html";
+include "../navbar.php";
 ?>
 <main class="container p-3">
     <div class="card m-2 hidden" id="resultCard"></div>

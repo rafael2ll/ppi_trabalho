@@ -4,9 +4,10 @@ require $_SERVER['DOCUMENT_ROOT'] . "/backend/utils/utils.php";
 require "../../model/Agenda.php";
 require "../../model/PageResponse.php";
 
+session_start();
+
 $PAGE_SIZE = 20;
 $pdo = dbConnection();
-$me = get_or_error('med_id', 'med_id não informado');
 $page = get_or_default("page", 0);
 $offset = $PAGE_SIZE * $page;
 try {
@@ -28,7 +29,7 @@ try {
         LIMIT ? OFFSET ?;
     SQL;
     $stmt = $pdo->prepare($sql);
-    $stmt->bindParam(1, $me);
+    $stmt->bindParam(1, $_SESSION['id']);
     $stmt->bindParam(2, $PAGE_SIZE);
     $stmt->bindParam(3, $offset);
     $stmt->execute();
