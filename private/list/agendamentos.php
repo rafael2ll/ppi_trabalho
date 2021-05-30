@@ -1,6 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION['id'])) {
+    header('Location: /public/login.php');
+    exit();
+}
+?>
 <!doctype html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

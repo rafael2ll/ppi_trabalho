@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if (!isset($_SESSION['id'])) {
+    http_response_code(401);
+    exit();
+}
 require "../../backend/utils/dbConnection.php";
 $pdo = dbConnection();
 
