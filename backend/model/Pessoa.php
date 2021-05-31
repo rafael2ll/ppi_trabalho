@@ -9,11 +9,11 @@ class Pessoa
     public ?string $email;
     public ?string $telefone;
     public ?string $cep;
-    public ?string $logradouro;
+    public ?string $endereco;
     public ?string $cidade;
     public ?string $estado;
 
-    public function __construct(?int $codigo, ?string $nome, ?string $sexo, ?string $email, ?string $telefone, ?string $cep, ?string $logradouro, ?string $cidade, ?string $estado)
+    public function __construct(?int $codigo, ?string $nome, ?string $sexo, ?string $email, ?string $telefone, ?string $cep, ?string $endereco, ?string $cidade, ?string $estado)
     {
         $this->codigo = $codigo;
         $this->nome = $nome;
@@ -21,7 +21,7 @@ class Pessoa
         $this->email = $email;
         $this->telefone = $telefone;
         $this->cep = $cep;
-        $this->logradouro = $logradouro;
+        $this->endereco = $endereco;
         $this->cidade = $cidade;
         $this->estado = $estado;
     }
@@ -42,7 +42,7 @@ class Pessoa
             $row['email'],
             $row['telefone'],
             $row['cep'],
-            $row['logradouro'],
+            $row['endereco'],
             $row['cidade'],
             $row['estado']);
         return $pessoa;

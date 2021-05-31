@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/style.css">
+    <script src="scripts/cadastro_endereco.js"></script>
     <title>Novo Endereço</title>
 
     <!-- Bootstrap CSS -->
@@ -19,7 +20,7 @@ include "../navbar.php";
 ?>
 
 <main class="container p-3">
-    <form action="Ex03-transacao-cadastra-pedido.php" method="POST">
+    <form method="POST">
         <h4 class="p-1">Cadastro de endereço</h4>
         <fieldset class="p-3">
             <div class="row g-3">

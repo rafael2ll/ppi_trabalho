@@ -10,7 +10,7 @@ class Funcionario extends Pessoa
 
     public function __construct(?Pessoa $pessoa, ?string $dataContrato, ?float $salario, ?string $senhaHash)
     {
-        parent::__construct($pessoa->codigo, $pessoa->nome, $pessoa->sexo, $pessoa->email, $pessoa->telefone, $pessoa->cep, $pessoa->logradouro, $pessoa->cidade, $pessoa->estado);
+        parent::__construct($pessoa->codigo, $pessoa->nome, $pessoa->sexo, $pessoa->email, $pessoa->telefone, $pessoa->cep, $pessoa->endereco, $pessoa->cidade, $pessoa->estado);
         $this->data_contrato = $dataContrato;
         $this->salario = $salario;
         $this->senha_hash = $senhaHash;

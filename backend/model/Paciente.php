@@ -10,7 +10,7 @@ class Paciente extends Pessoa
 
     public function __construct($pessoa, float $peso, float $altura, string $tipoSanguineo)
     {
-        parent::__construct($pessoa->codigo, $pessoa->nome, $pessoa->sexo, $pessoa->email, $pessoa->telefone, $pessoa->cep, $pessoa->logradouro, $pessoa->cidade, $pessoa->estado);
+        parent::__construct($pessoa->codigo, $pessoa->nome, $pessoa->sexo, $pessoa->email, $pessoa->telefone, $pessoa->cep, $pessoa->endereco, $pessoa->cidade, $pessoa->estado);
         $this->peso = $peso;
         $this->altura = $altura;
         $this->tipoSanguineo = $tipoSanguineo;

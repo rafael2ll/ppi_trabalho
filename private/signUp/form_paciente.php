@@ -11,6 +11,8 @@ if (!isset($_SESSION['id'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="scripts/busca-endereco.js"></script>
+    <script src="scripts/cadastra_paciente.js"></script>
     <link rel="stylesheet" href="../../css/style.css">
     <title>Cadastrar pacientes</title>
 
@@ -26,8 +28,10 @@ include "../../navbar.php";
 ?>
 <div class="container">
 
-    <main>
-        <form action="cadastra_paciente.php" method="POST" class="row g-3">
+    <main class="container p-3">
+        <div class="card m-2 hidden" id="resultCard"></div>
+        <form method="POST" class="row g-3">
+            <h4 class="p-1">Cadastro de Paciente</h4>
             <fieldset class="p-3">
                 <div class="col-9">
                     <label for="nome" class="form-label">Nome completo</label>
@@ -43,43 +47,50 @@ include "../../navbar.php";
                     </select>
                 </div>
 
-                <div class="col-sm-9">
-                    <label for="email" class="form-label">E-mail</label>
-                    <input type="email" name="email" class="form-control" id="email">
-                </div>
-
-                <div class="col-sm-3">
-                    <label for="telefone" class="form-label">Telefone</label>
-                    <input type="text" name="telefone" class="form-control" id="telefone">
-                </div>
-
-                <div class="col-sm-2">
-                    <label for="cep" class="form-label">CEP</label>
-                    <input type="text" name="cep" class="form-control" id="cep">
-                </div>
-
-                <div class="col-sm-10">
-                    <label for="endereco" class="form-label">Endereço</label>
-                    <input type="text" name="endereco" class="form-control" id="endereco"
-                           placeholder="Avenida João Naves de Ávila">
-                </div>
-
-                <div class="col-sm-6">
-                    <label for="cidade" class="form-label">Cidade</label>
-                    <input type="text" name="cidade" class="form-control" id="cidade">
-                </div>
-
-                <div class="col-sm">
-                    <label for="estado" class="form-label">Estado</label>
-                    <select name="estado" class="form-select" id="estado">
-                        <option selected>Selecione</option>
-                        <option value="MG">MG</option>
-                        <option value="SP">SP</option>
-                    </select>
-                </div>
-
-                <!--Paciente-->
                 <div class="row g-3">
+                    <div class="col-sm-9">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" name="email" class="form-control" id="email">
+                    </div>
+
+                    <div class="col-sm-3">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="text" name="telefone" class="form-control" id="telefone">
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-sm-2">
+                        <label for="cep" class="form-label">CEP</label>
+                        <input type="text" name="cep" class="form-control" id="cep">
+                    </div>
+
+                    <div class="col-sm-10">
+                        <label for="rua" class="form-label">Endereço</label>
+                        <input type="text" name="rua" class="form-control" id="rua"
+                               placeholder="Avenida João Naves de Ávila">
+                    </div>
+
+                    <div class="col-sm-6">
+                        <label for="cidade" class="form-label">Cidade</label>
+                        <input type="text" name="cidade" class="form-control" id="cidade">
+                    </div>
+
+                    <div class="col-sm">
+                        <label for="estado" class="form-label">Estado</label>
+                        <select name="estado" class="form-select" id="estado">
+                            <option selected>Selecione</option>
+                            <option value="MG">MG</option>
+                            <option value="SP">SP</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!--Paciente-->
+            <h4 class="p-1 mt-3 mb-0">Informações Extras</h4>
+            <fieldset class="p-3">
+                <div class="row gx-2">
                     <div class="col-sm-3">
                         <label for="peso" class="form-label">Peso (kg)</label>
                         <input type="number" name="peso" class="form-control" id="peso" value="75.5">
@@ -102,11 +113,11 @@ include "../../navbar.php";
                         </select>
                     </div>
                 </div>
-
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Cadastrar</button>
-                </div>
             </fieldset>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
         </form>
     </main>
 </div>
@@ -121,5 +132,4 @@ include "../../footer.html";
 ?>
 
 </body>
-
 </html>

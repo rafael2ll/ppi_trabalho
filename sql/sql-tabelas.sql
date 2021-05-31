@@ -15,7 +15,7 @@ CREATE TABLE pessoa
 CREATE TABLE funcionario
 (
     codigo        int PRIMARY KEY,
-    data_contrato datetime,
+    data_contrato date,
     salario       float(8, 2),
     senha_hash    varchar(255),
     foreign key (codigo) REFERENCES pessoa (codigo) ON DELETE CASCADE
