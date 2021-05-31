@@ -34,9 +34,8 @@ $endereco = htmlspecialchars($endereco);
 $cidade = htmlspecialchars($cidade);
 $estado = htmlspecialchars($estado);
 
-$peso = htmlspecialchars($peso);
-$altura = htmlspecialchars($altura);
-$tsangue = htmlspecialchars($tsangue);
+$salario = htmlspecialchars($salario);
+$data_contrato = htmlspecialchars($data_contrato);
 
 try {
 

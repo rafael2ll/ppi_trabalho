@@ -32,7 +32,7 @@ p {
 }
 
 fieldset {
-    margin: 0px;
+    margin: 0 !important;
     position: center;
     border: 5px solid gray;
     background-color: #eee;
@@ -130,6 +130,6 @@ footer > p {
     visibility: visible;
 }
 
-a{
+a {
     cursor: pointer;
 }
