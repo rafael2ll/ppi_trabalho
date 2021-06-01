@@ -6,28 +6,14 @@ require "../../model/Endereco.php";
 $pdo = dbConnection();
 
 
-// class Endereco
-// {
-//   public $rua;
-//   public $bairro;
-//   public $cidade;
-//
-//   function __construct($rua, $bairro, $cidade)
-//   {
-//     $this->rua = $rua;
-//     $this->bairro = $bairro;
-//     $this->cidade = $cidade;
-//   }
-// }
-
-$pdo = mysqlConnect();
 if (isset($_GET["cep"])) $cep = $_GET['cep'] ?? '';
 $cep = htmlspecialchars($cep);
+
 
 try {
 
   $sql = <<<SQL
-  SELECT rua, bairro, cidade
+  SELECT logradouro, cidade, estado
   FROM base_endereco
   WHERE cep = ?
   SQL;
@@ -44,17 +30,24 @@ catch (Exception $e) {
 
 $row = $stmt->fetch();
 
-$rua = htmlspecialchars($row['rua']);
-$bairro = htmlspecialchars($row['bairro']);
+$rua = htmlspecialchars($row['logradouro']);
 $cidade = htmlspecialchars($row['cidade']);
+$estado = htmlspecialchars($row['estado']);
 
-$endereco1 = new Endereco ($rua, $bairro, $cidade);
+if($rua == ''){
+    $rua = ' ';
+    $cidade = ' ';
+    $estado = ' ';
+}
+
+$endereco1 = new Endereco ($cep, $rua, $cidade, $estado);
 
 $enderecos = array(
-  $cep => $endereco1,
+    $cep => $endereco1,
 );
 
 $endereco = array_key_exists($cep, $enderecos) ?
-    $enderecos[$cep] : new Endereco('', '', '');
+    $enderecos[$cep] : new Endereco('', '', '', '');
+
 
 echo json_encode($endereco);

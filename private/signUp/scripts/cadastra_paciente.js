@@ -1,7 +1,10 @@
 window.onload = () => {
+    const pacienteForm = document.querySelector('form');
     const enderecoForm = document.querySelector('form');
+    const inputCep = document.getElementById('cep')
 
-    enderecoForm.addEventListener('submit', submit);
+    inputCep.onkeyup = () => buscaEndereco(inputCep.value);
+    pacienteForm.addEventListener('submit', submit);
 }
 
 

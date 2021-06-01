@@ -4,7 +4,7 @@ $isLogged = isset($_SESSION['id']);
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="public/index.php">Clinica X</a>
+        <a class="navbar-brand" href="/public/index.php">Clinica X</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@ $isLogged = isset($_SESSION['id']);
                 HTML;
                 $privNav = <<<HTML
                     <li class="nav-item"><a class="nav-link" href="/private/signUp/form_funcionario.php">Novo Funcionário</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/private/signUp/form_funcionario.php">Novo Paciente</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/private/signUp/form_paciente.php">Novo Paciente</a></li>
                     <li class="nav-item"><a class="nav-link" href="/private/list/funcionarios.php">Ver Funcionários</a></li>
                     <li class="nav-item"><a class="nav-link" href="/private/list/pacientes.php">Ver Pacientes</a></li>
                     <li class="nav-item"><a class="nav-link" href="/private/list/enderecos.php">Ver Endereços</a></li>

@@ -11,11 +11,11 @@ function submit(e) {
     const formData = new FormData(meuForm)
     const options = {method: "POST", body: formData}
     console.log(options)
-    fetch('/backend/api/endereco/cadastro_endereco.php', options)
+    fetch('/backend/api/endereco/cadastra_endereco.php', options)
         .then(response => {
             const resultCard = document.getElementById('resultCard')
             if (response.ok) {
-                showCard(true, resultCard, `Novo endereco inserido com sucesso! CEP: ${formData.get('ceo')}, Rua: ${formData.get('rua')}`)
+                showCard(true, resultCard, `Novo endereco inserido com sucesso! CEP: ${formData.get('cep')}, Rua: ${formData.get('rua')}`)
                 meuForm.reset()
             } else {
                 response.json().then(error => {

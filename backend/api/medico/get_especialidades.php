@@ -15,6 +15,6 @@ try {
 
 $especialidades = array();
 while ($row = $stmt->fetch()) {
-    array_push($especialidades, ucfirst(htmlspecialchars($row['especialidade'])));
+    array_push($especialidades, htmlspecialchars($row['especialidade']));
 }
 echo json_encode_not_null(array_values($especialidades));

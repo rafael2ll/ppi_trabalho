@@ -10,10 +10,11 @@ require $_SERVER['DOCUMENT_ROOT'] . "/backend/utils/utils.php";
 require "../../model/Agenda.php";
 require "../../model/PageResponse.php";
 
-session_start();
 
 $PAGE_SIZE = 20;
 $pdo = dbConnection();
+$me = $_SESSION['id'];
+
 $page = get_or_default("page", 0);
 $offset = $PAGE_SIZE * $page;
 try {
