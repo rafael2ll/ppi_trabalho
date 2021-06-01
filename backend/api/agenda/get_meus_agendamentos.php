@@ -40,7 +40,7 @@ try {
     $stmt->bindParam(3, $offset);
     $stmt->execute();
     $countStmt = $pdo->prepare($countSql);
-    $countStmt->execute([$me]);
+    $countStmt->execute();
 } catch (Exception $e) {
     exit('Ocorreu uma falha: ' . $e->getMessage());
 }
