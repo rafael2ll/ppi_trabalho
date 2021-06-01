@@ -38,9 +38,8 @@ include "../navbar.php";
                 <div class="col-sm-3">
                     <label for="estado" class="form-label">Estado</label>
                     <select name="estado" class="form-select" id="estado">
-                        <option selected>Selecione</option>
-                        <option value="Minas Gerais">Minas Gerais</option>
-                        <option value="Sao Paulo">Sao Paulo</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="SP">Sao Paulo</option>
                     </select>
                 </div>
                 <div class="col-sm-9">

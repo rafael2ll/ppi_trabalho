@@ -6,9 +6,9 @@ class Medico extends Funcionario
     public ?string $especialidade;
     public ?string $crm;
 
-    public function __construct(?Pessoa $funcionario, ?string $especialidade, ?string $crm)
+    public function __construct(?Funcionario $funcionario, ?string $especialidade, ?string $crm)
     {
-        parent::__construct($funcionario, $funcionario->dataContrato, $funcionario->salario, null);
+        parent::__construct($funcionario, $funcionario->data_contrato, $funcionario->salario, null);
         $this->especialidade = $especialidade;
         $this->crm = $crm;
     }

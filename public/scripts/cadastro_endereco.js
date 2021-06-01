@@ -15,7 +15,7 @@ function submit(e) {
         .then(response => {
             const resultCard = document.getElementById('resultCard')
             if (response.ok) {
-                showCard(true, resultCard, `Novo endereco inserido com sucesso! CEP: ${formData.get('ceo')}, Rua: ${formData.get('rua')}`)
+                showCard(true, resultCard, `Novo endereco inserido com sucesso! CEP: ${formData.get('cep')}, Rua: ${formData.get('rua')}`)
                 meuForm.reset()
             } else {
                 response.json().then(error => {

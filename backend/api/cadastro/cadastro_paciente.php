@@ -7,7 +7,6 @@ if (!isset($_SESSION['id'])) {
 
 require $_SERVER['DOCUMENT_ROOT'] . "/backend/utils/dbConnection.php";
 require $_SERVER['DOCUMENT_ROOT'] . "/backend/utils/utils.php";
-require "../../model/Pessoa.php";
 require "../../model/Paciente.php";
 
 $PAGE_SIZE = 20;

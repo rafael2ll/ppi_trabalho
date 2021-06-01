@@ -8,14 +8,14 @@ $pdo = dbConnection();
 
 $endereco = new endereco(
     post_or_error('cep', 'CEP inválido'),
-    post_or_error('rua', 'Rua inválida'),
+    post_or_error('endereco', 'Rua inválida'),
     post_or_error('cidade', 'Cidade inválida'),
     post_or_error('estado', 'Estado inválido'));
 
 try {
 
     $sql = <<<SQL
-        INSERT INTO base_endereco(cep, rua, cidade, estado) VALUES (:cep, :rua, :cidade, :estado);
+        INSERT INTO base_endereco(cep, logradouro, cidade, estado) VALUES (:cep, :logradouro, :cidade, :estado);
     SQL;
     $stmt = $pdo->prepare($sql);
     $stmt->execute($endereco->insertValues());

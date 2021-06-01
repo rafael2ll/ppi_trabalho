@@ -7,8 +7,6 @@ if (!isset($_SESSION['id'])) {
 
 require $_SERVER['DOCUMENT_ROOT'] . "/backend/utils/dbConnection.php";
 require $_SERVER['DOCUMENT_ROOT'] . "/backend/utils/utils.php";
-require "../../model/Pessoa.php";
-require "../../model/Funcionario.php";
 require "../../model/Medico.php";
 
 $PAGE_SIZE = 20;
@@ -82,8 +80,12 @@ try {
 } catch (Exception $e) {
     $pdo->rollBack();
     //error_log($e->getMessage(), 3, 'log.php');
-    if ($e->errorInfo[1] === 1062)
+    if ($e->errorInfo[1] === 1062) {
+        http_response_code(409);
         exit('Dados duplicados: ' . $e->getMessage());
-    else
+    }
+    else {
+        http_response_code(500);
         exit('Falha ao cadastrar os dados: ' . $e->getMessage());
+    }
 }

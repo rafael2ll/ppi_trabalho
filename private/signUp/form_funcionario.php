@@ -10,7 +10,6 @@ if (!isset($_SESSION['id'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="scripts/busca-endereco.js"></script>
     <script src="scripts/cadastra_funcionario.js"></script>
     <link rel="stylesheet" href="../../css/style.css">
     <title>Cadastra funcionarios</title>
@@ -19,12 +18,13 @@ if (!isset($_SESSION['id'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
 
-
 </head>
+
 <body>
 <?php
 include "../../navbar.php";
 ?>
+
 <main class="container p-3">
     <div class="card m-2 hidden" id="resultCard"></div>
     <form method="POST" class="row g-3">
@@ -38,9 +38,8 @@ include "../../navbar.php";
             <div class="col-sm">
                 <label for="sexo" class="form-label">Sexo</label>
                 <select name="sexo" class="form-select" id="sexo">
-                    <option selected>Selecione</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Feminino">Feminino</option>
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
                 </select>
             </div>
 
@@ -75,7 +74,6 @@ include "../../navbar.php";
                 <div class="col-sm">
                     <label for="estado" class="form-label">Estado</label>
                     <select name="estado" class="form-select" id="estado">
-                        <option selected>Selecione</option>
                         <option value="MG">MG</option>
                         <option value="SP">SP</option>
                     </select>
@@ -95,13 +93,13 @@ include "../../navbar.php";
 
                 <div class="col-sm-3">
                     <label for="senha" class="form-label">Senha</label>
-                    <input type="text" name="senha" class="form-control" id="senha">
+                    <input type="password" name="senha" class="form-control" id="senha">
                 </div>
             </div>
 
         </fieldset>
 
-        <h4 class="p-1 mt-3 mb-0">Informações caso for medico</h4>
+        <h4 class="p-1">Informações caso for medico</h4>
         <fieldset class="p-3">
             <div class="row gx-2">
                 <div class="col-sm-9">

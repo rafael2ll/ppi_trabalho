@@ -32,7 +32,7 @@ function showPage(funcionarioList) {
         appendColumn(tr, funcionarios.email)
         appendColumn(tr, funcionarios.telefone)
         appendColumn(tr, funcionarios.cep)
-        appendColumn(tr, funcionarios.logradouro)
+        appendColumn(tr, funcionarios.endereco)
         appendColumn(tr, funcionarios.cidade)
         appendColumn(tr, funcionarios.estado)
         appendColumn(tr, funcionarios.data_contrato)
