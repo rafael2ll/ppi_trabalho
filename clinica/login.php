@@ -8,9 +8,10 @@ require $_SERVER['DOCUMENT_ROOT'] . "/clinica/backend/utils/dbConnection.php";
 function checkLogin($pdo, $email, $senha)
 {
     $sql = <<<SQL
-    SELECT funcionario.senha_hash as hash_senha, funcionario.codigo as codigo
+    SELECT funcionario.senha_hash as hash_senha, funcionario.codigo as codigo, medico.crm as isMedico 
     FROM pessoa
     INNER JOIN funcionario ON pessoa.codigo = funcionario.codigo
+    LEFT JOIN medico ON pessoa.codigo = medico.codigo 
     WHERE email = ?
     SQL;
 
@@ -21,7 +22,7 @@ function checkLogin($pdo, $email, $senha)
         if (!$row)
             return array(false, -1);
         else
-            return array(password_verify($senha, $row['hash_senha']), $row['codigo']);
+            return array(password_verify($senha, $row['hash_senha']), $row['codigo'], $row['isMedico']);
     } catch (Exception $e) {
         exit('Falha inesperada: ' . $e->getMessage());
     }
@@ -45,6 +46,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             session_start();
         }
         $_SESSION['id'] = $resultLogin[1];
+        if ($resultLogin[2] != null)
+            $_SESSION['is_medico'] = true;
+
         exit();
     } else
         $errorMsg = "Dados incorretos";

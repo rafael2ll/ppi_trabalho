@@ -1,15 +1,15 @@
 <?php
 function dbConnection(): PDO
 {
-//    $db_host = "127.0.0.1";
-//    $db_username = "root";
-//    $db_password = "password";
-//    $db_name = "ppi";
+    $db_host = "127.0.0.1";
+    $db_username = "root";
+    $db_password = "password";
+    $db_name = "ppi";
 
-    $db_host = "fdb30.awardspace.net";
-    $db_username = "3767978_ppi";
-    $db_password = "Avestruz1_";
-    $db_name = "3767978_ppi";
+//    $db_host = "fdb30.awardspace.net";
+//    $db_username = "3767978_ppi";
+//    $db_password = "Avestruz1_";
+//    $db_name = "3767978_ppi";
 
     $dsn = "mysql:host=$db_host;dbname=$db_name;charset=utf8mb4";
 

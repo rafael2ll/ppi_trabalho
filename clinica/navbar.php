@@ -3,6 +3,7 @@ if (session_id() == '') {
     session_start();
 }
 $isLogged = isset($_SESSION['id']);
+$isMedico = isset($_SESSION['is_medico']);
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
@@ -27,8 +28,12 @@ $isLogged = isset($_SESSION['id']);
                     <li class="nav-item"><a class="nav-link" href="/clinica/private/list/pacientes.php">Ver Pacientes</a></li>
                     <li class="nav-item"><a class="nav-link" href="/clinica/private/list/enderecos.php">Ver Endereços</a></li>
                     <li class="nav-item"><a class="nav-link" href="/clinica/private/list/agendamentos.php">Ver Todos Agendamentos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/clinica/private/list/meus_agendamentos.php">Ver Meus Agendamentos</a></li>
                 HTML;
+                if ($isMedico) {
+                    $privNav .= '
+                    <li class="nav-item"><a class="nav-link" href="/clinica/private/list/meus_agendamentos.php">Ver Meus Agendamentos</a></li>
+                    ';
+                }
                 if ($isLogged)
                     echo $privNav;
                 else
