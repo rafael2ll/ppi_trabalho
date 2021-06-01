@@ -18,7 +18,7 @@ window.onload = () => {
 }
 
 function loadEspecialidades(medicalSpecialtySelect) {
-    fetch('/backend/api/medico/get_especialidades.php')
+    fetch('/clinica/backend/api/medico/get_especialidades.php')
         .then(response => {
             if (response.ok)
                 return response.json()
