@@ -1,4 +1,8 @@
 <?php
+if (session_id() == '') {
+    session_start();
+}
+
 require $_SERVER['DOCUMENT_ROOT'] . "/clinica/backend/utils/dbConnection.php";
 
 function checkLogin($pdo, $email, $senha)
@@ -14,7 +18,6 @@ function checkLogin($pdo, $email, $senha)
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$email]);
         $row = $stmt->fetch();
-        var_dump(password_hash('senha', PASSWORD_BCRYPT));
         if (!$row)
             return array(false, -1);
         else

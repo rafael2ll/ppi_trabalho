@@ -12,7 +12,7 @@ VALUES ('Fulano 1', 'M', 'fulano1@email.com', '5534998985656', '38408119', 'Rua 
        ('Fulano 11', 'F', 'fulano11@email.com', '5534998985656', '38408128', 'Rua U', 'K City', 'K');
 
 
-INSERT INTO ppi.funcionario (codigo, data_contrato, salario, senha_hash)
+INSERT INTO funcionario (codigo, data_contrato, salario, senha_hash)
 VALUES (1, '2021-01-01 00:00:00', 1500.0, '$2y$10$SOvI3LpJDqD77P6wQ5Gj9.Ua/F5hsWzD5l2na6oai8UxUrShdTU0i'),
        (2, '2021-01-01 00:00:00', 2500.0, '$2y$10$SOvI3LpJDqD77P6wQ5Gj9.Ua/F5hsWzD5l2na6oai8UxUrShdTU0i'),
        (3, '2021-01-01 00:00:00', 3500.0, '$2y$10$SOvI3LpJDqD77P6wQ5Gj9.Ua/F5hsWzD5l2na6oai8UxUrShdTU0i'),
@@ -20,7 +20,7 @@ VALUES (1, '2021-01-01 00:00:00', 1500.0, '$2y$10$SOvI3LpJDqD77P6wQ5Gj9.Ua/F5hsW
        (5, '2019-01-01 00:00:00', 5500.0, '$2y$10$SOvI3LpJDqD77P6wQ5Gj9.Ua/F5hsWzD5l2na6oai8UxUrShdTU0i'),
        (6, '2020-01-01 00:00:00', 6500.0, '$2y$10$SOvI3LpJDqD77P6wQ5Gj9.Ua/F5hsWzD5l2na6oai8UxUrShdTU0i');
 
-INSERT INTO ppi.medico (codigo, especialidade, crm)
+INSERT INTO medico (codigo, especialidade, crm)
 VALUES (1, 'cardiologia', '000001'),
        (2, 'cardiologia', '000001'),
        (3, 'endocrinologia', '000001'),
