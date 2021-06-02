@@ -24,8 +24,8 @@ include "navbar.php";
 ?>
 
 <main class="container p-3">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST"
-          class="row g-3 mini-center-horizontal">
+    <div class="card m-2 hidden" id="resultCard"></div>
+    <form method="POST" class="row g-3 mini-center-horizontal">
         <h4 class="p-1 mb-0">Login - Funcionarios</h4>
         <fieldset class="p-3 m-0">
             <!-- E-mail e senha -->
