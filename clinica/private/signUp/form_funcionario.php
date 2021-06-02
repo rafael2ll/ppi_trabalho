@@ -32,6 +32,10 @@ include "../../navbar.php";
     <form method="POST" class="row g-3">
         <h4 class="p-1">Cadastro de Funcionario</h4>
         <fieldset class="p-3">
+            <div>
+                <input type="checkbox" name="tipo_funcionario" value="medico">É médico?
+            </div>
+
             <div class="col-9">
                 <label for="nome" class="form-label">Nome completo</label>
                 <input type="text" name="nome" class="form-control" id="nome">
@@ -102,26 +106,42 @@ include "../../navbar.php";
 
         </fieldset>
 
-        <h4 class="p-1">Informações caso for medico</h4>
-        <fieldset class="p-3">
-            <div class="row gx-2">
-                <div class="col-sm-9">
-                    <label for="esp" class="form-label">Especialidade</label>
-                    <input type="text" name="esp" class="form-control" id="esp">
-                </div>
+        <div style="display: none;" id="medico_informacoes">
+            <h4 class="p-1">Informações medico</h4>
+            <fieldset class="p-3">
+                <div class="row gx-2">
+                    <div class="col-sm-9">
+                        <label for="esp" class="form-label">Especialidade</label>
+                        <input type="text" name="esp" class="form-control" id="esp">
+                    </div>
 
-                <div class="col-sm-9">
-                    <label for="crm" class="form-label">CRM</label>
-                    <input type="text" name="crm" class="form-control" id="crm">
+                    <div class="col-sm-9">
+                        <label for="crm" class="form-label">CRM</label>
+                        <input type="text" name="crm" class="form-control" id="crm">
+                    </div>
                 </div>
-            </div>
-        </fieldset>
-
+            </fieldset>
+        </div>
         <div class="col-12 mt-2">
             <button type="submit" class="btn btn-primary submit-button">Cadastrar</button>
         </div>
 
     </form>
+
+    <script>
+        window.onload=function(){
+            var checkbox = document.querySelector("input[name=tipo_funcionario]");
+
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    document.getElementById('medico_informacoes').style.display = "block";
+                } else {
+                    document.getElementById('medico_informacoes').style.display = "none";
+                }
+            });
+        }
+    </script>
+
 </main>
 <?php
 include "../../footer.html";
