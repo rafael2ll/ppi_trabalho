@@ -78,6 +78,13 @@ include "../../navbar.php";
                     <select name="estado" class="form-select" id="estado">
                         <option value="MG">MG</option>
                         <option value="SP">SP</option>
+                        <option value="AM">AM</option>
+                        <option value="CE">CE</option>
+                        <option value="GO">GO</option>
+                        <option value="MS">MS</option>
+                        <option value="PE">PE</option>
+                        <option value="RS">RJ</option>
+                        <option value="RS">RS</option>
                     </select>
                 </div>
             </div>

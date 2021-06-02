@@ -1,13 +1,21 @@
 window.onload = () => {
-    console.log('ola')
     const funcionarioForm = document.querySelector('form');
-    const enderecoForm = document.querySelector('form');
-    const inputCep = document.getElementById('cep')
+    var checkbox = document.getElementById('tipo_funcionario');
+    const inputCep = document.getElementById('cep');
 
     inputCep.onkeyup = () => buscaEndereco(inputCep.value);
+    checkbox.addEventListener('change', ehMedico);
     funcionarioForm.addEventListener('submit', submit);
 }
 
+function  ehMedico(){
+    checkbox = document.getElementById('tipo_funcionario');
+    if(checkbox.checked){
+        document.getElementById('medico_informacoes').style.display = "block";
+    } else {
+        document.getElementById('medico_informacoes').style.display = "none";
+    }
+}
 
 function submit(e) {
     e.preventDefault()

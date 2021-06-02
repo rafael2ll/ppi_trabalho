@@ -45,6 +45,13 @@ include "navbar.php";
                     <select name="estado" class="form-select" id="estado">
                         <option value="MG">Minas Gerais</option>
                         <option value="SP">Sao Paulo</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="CE">Ceara</option>
+                        <option value="GO">Goias</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="RS">Rio de Janeiro</option>
+                        <option value="RS">Rio Grande do Sul</option>
                     </select>
                 </div>
                 <div class="col-sm-9">

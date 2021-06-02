@@ -33,7 +33,7 @@ include "../../navbar.php";
         <h4 class="p-1">Cadastro de Funcionario</h4>
         <fieldset class="p-3">
             <div>
-                <input type="checkbox" name="tipo_funcionario" value="medico">É médico?
+                <input type="checkbox" id="tipo_funcionario" value="medico">É médico?
             </div>
 
             <div class="col-9">
@@ -83,6 +83,13 @@ include "../../navbar.php";
                     <select name="estado" class="form-select" id="estado">
                         <option value="MG">MG</option>
                         <option value="SP">SP</option>
+                        <option value="AM">AM</option>
+                        <option value="CE">CE</option>
+                        <option value="GO">GO</option>
+                        <option value="MS">MS</option>
+                        <option value="PE">PE</option>
+                        <option value="RS">RJ</option>
+                        <option value="RS">RS</option>
                     </select>
                 </div>
             </div>
@@ -107,7 +114,7 @@ include "../../navbar.php";
         </fieldset>
 
         <div style="display: none;" id="medico_informacoes">
-            <h4 class="p-1">Informações medico</h4>
+            <h4 class="p-1">Informações médico</h4>
             <fieldset class="p-3">
                 <div class="row gx-2">
                     <div class="col-sm-9">
@@ -127,20 +134,6 @@ include "../../navbar.php";
         </div>
 
     </form>
-
-    <script>
-        window.onload=function(){
-            var checkbox = document.querySelector("input[name=tipo_funcionario]");
-
-            checkbox.addEventListener('change', function() {
-                if (this.checked) {
-                    document.getElementById('medico_informacoes').style.display = "block";
-                } else {
-                    document.getElementById('medico_informacoes').style.display = "none";
-                }
-            });
-        }
-    </script>
 
 </main>
 <?php
