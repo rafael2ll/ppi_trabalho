@@ -5,7 +5,7 @@ if (session_id() == '') {
 $isLogged = isset($_SESSION['id']);
 $isMedico = isset($_SESSION['is_medico']);
 if ($isLogged)
-    $nome = $_SESSION['nome'];
+    $nome = explode(" ", $_SESSION['nome'])[0];
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">

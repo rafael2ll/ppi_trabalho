@@ -26,7 +26,7 @@ function loadEspecialidades(medicalSpecialtySelect) {
         }).then(specialtyList => {
         specialtyList.forEach(s => {
             const el = document.createElement("option")
-            el.textContent = s
+            el.textContent = s[0].toUpperCase() + s.slice(1);
             el.value = s
             medicalSpecialtySelect.appendChild(el)
         })

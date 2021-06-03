@@ -1,5 +1,5 @@
 <?php
-if(session_id() == ''){
+if (session_id() == '') {
     session_start();
 }
 if (!isset($_SESSION['id'])) {
@@ -32,17 +32,19 @@ include "../../navbar.php";
     <form method="POST" class="row g-3">
         <h4 class="p-1">Cadastro de Paciente</h4>
         <fieldset class="p-3">
-            <div class="col-9">
-                <label for="nome" class="form-label">Nome completo</label>
-                <input type="text" name="nome" class="form-control" id="nome">
-            </div>
+            <div class="row gx-2">
+                <div class="col-sm-8">
+                    <label for="nome" class="form-label">Nome completo</label>
+                    <input type="text" name="nome" class="form-control" id="nome">
+                </div>
 
-            <div class="col-sm">
-                <label for="sexo" class="form-label">Sexo</label>
-                <select name="sexo" class="form-select" id="sexo">
-                    <option value="M">Masculino</option>
-                    <option value="F">Feminino</option>
-                </select>
+                <div class="col-sm-4">
+                    <label for="sexo" class="form-label">Sexo</label>
+                    <select name="sexo" class="form-select" id="sexo">
+                        <option value="M">Masculino</option>
+                        <option value="F">Feminino</option>
+                    </select>
+                </div>
             </div>
 
             <div class="row g-3">
@@ -62,18 +64,7 @@ include "../../navbar.php";
                     <label for="cep" class="form-label">CEP</label>
                     <input type="text" name="cep" class="form-control" id="cep">
                 </div>
-
-                <div class="col-sm-10">
-                    <label for="rua" class="form-label">Endereço</label>
-                    <input type="text" name="rua" class="form-control" id="rua" placeholder="Avenida João Naves de Ávila">
-                </div>
-
-                <div class="col-sm-6">
-                    <label for="cidade" class="form-label">Cidade</label>
-                    <input type="text" name="cidade" class="form-control" id="cidade">
-                </div>
-
-                <div class="col-sm">
+                <div class="col-sm-2">
                     <label for="estado" class="form-label">Estado</label>
                     <select name="estado" class="form-select" id="estado">
                         <option value="MG">MG</option>
@@ -87,6 +78,16 @@ include "../../navbar.php";
                         <option value="RS">RS</option>
                     </select>
                 </div>
+                <div class="col-sm-8">
+                    <label for="cidade" class="form-label">Cidade</label>
+                    <input type="text" name="cidade" class="form-control" id="cidade">
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <label for="rua" class="form-label">Endereço</label>
+                <input type="text" name="rua" class="form-control" id="rua"
+                       placeholder="Avenida João Naves de Ávila">
             </div>
         </fieldset>
 
